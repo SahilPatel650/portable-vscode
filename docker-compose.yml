@@ -1,0 +1,22 @@
+version: "2.1"
+services:
+  code-server:
+    image: my-codeserver
+    container_name: #name
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+#      - HASHED_PASSWORD=
+#      - SUDO_PASSWORD_HASH=
+      - PASSWORD= #password
+      - SUDO_PASSWORD= #sudo password
+      - PROXY_DOMAIN= #proxy domain (optional)
+      - DEFAULT_WORKSPACE=/config/workspace
+      - EXTENSIONS_GALLERY={"serviceUrl":"https://marketplace.visualstudio.com/_apis/public/gallery","cacheUrl":"https://vscode.blob.core.windows.net/gallery/index","itemUrl":"https://marketplace.visualstudio.com/items"}
+
+    volumes:
+      - ./config:/config
+    ports:
+      - #PORT:8443
+    restart: unless-stopped
